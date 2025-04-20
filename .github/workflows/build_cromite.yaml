@@ -1,4 +1,4 @@
-name: Build Cromite
+name: Build Radium
 permissions:
   actions: none
   checks: none
