@@ -29,7 +29,7 @@ on:
       type:
         description: 'runner? [dev/ci]'
         required: true
-        default: 'ci'
+        default: 'dev'
       debug:
         description: 'debug? [true/false]'
         required: true
