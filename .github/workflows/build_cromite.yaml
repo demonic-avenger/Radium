@@ -28,7 +28,7 @@ on:
         default: 'arm64'
       type:
         description: 'runner? [dev/ci]'
-        required: true
+        required: false
         default: 'dev'
       debug:
         description: 'debug? [true/false]'
