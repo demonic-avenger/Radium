@@ -1,4 +1,4 @@
-name: Build Radium
+name: Build Radium-primary
 permissions:
   actions: none
   checks: none
