@@ -41,6 +41,7 @@ License: GPL-3.0-only - https://spdx.org/licenses/GPL-3.0-only.html
  .../page_content_annotations_model_manager.cc    |  1 +
  .../notification_content_detection/BUILD.gn      |  7 +++++++
  components/safe_browsing/core/common/features.cc |  1 +
+ .../service_worker_main_resource_loader.cc       |  1 +
  .../Disable-all-predictors-code.inc              |  2 ++
  .../Disable-all-predictors-code.inc              |  1 +
  .../Disable-all-predictors-code.inc              |  1 +
@@ -52,7 +53,7 @@ License: GPL-3.0-only - https://spdx.org/licenses/GPL-3.0-only.html
  .../core/html/parser/html_document_parser.cc     |  1 +
  .../document_speculation_rules.cc                |  1 +
  .../platform/runtime_enabled_features.json5      |  2 +-
- 47 files changed, 123 insertions(+), 47 deletions(-)
+ 48 files changed, 124 insertions(+), 47 deletions(-)
  create mode 100644 cromite_flags/chrome/browser/browser_features_cc/Disable-all-predictors-code.inc
  create mode 100644 cromite_flags/chrome/browser/flags/android/chrome_feature_list_cc/Disable-all-predictors-code.inc
  create mode 100644 cromite_flags/chrome/common/chrome_features_cc/Disable-all-predictors-code.inc
@@ -864,6 +865,17 @@ diff --git a/components/safe_browsing/core/common/features.cc b/components/safe_
  
  constexpr base::FeatureParam<int>
      kOnDeviceNotificationContentDetectionModelAllowlistSamplingRate{
+diff --git a/content/browser/service_worker/service_worker_main_resource_loader.cc b/content/browser/service_worker/service_worker_main_resource_loader.cc
+--- a/content/browser/service_worker/service_worker_main_resource_loader.cc
++++ b/content/browser/service_worker/service_worker_main_resource_loader.cc
+@@ -517,6 +517,7 @@ bool ServiceWorkerMainResourceLoader::MaybeStartAutoPreload(
+ bool ServiceWorkerMainResourceLoader::StartRaceNetworkRequest(
+     scoped_refptr<ServiceWorkerContextWrapper> context,
+     scoped_refptr<ServiceWorkerVersion> version) {
++  if ((true)) return false;
+   // Set fetch_handler_bypass_option to tell the renderer that
+   // RaceNetworkRequest is enabled.
+   version->set_fetch_handler_bypass_option(
 diff --git a/cromite_flags/chrome/browser/browser_features_cc/Disable-all-predictors-code.inc b/cromite_flags/chrome/browser/browser_features_cc/Disable-all-predictors-code.inc
 new file mode 100644
 --- /dev/null
